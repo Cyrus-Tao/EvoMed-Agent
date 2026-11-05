@@ -1,0 +1,5 @@
+# 统一行尾为 LF
+# 目的：PoC 产物（poc/out/*.json）与全部文本文件在任何平台 checkout / 重跑后字节一致，
+# 避免 Windows 的 core.autocrlf=true 把产物写成 CRLF，导致跨平台 sha256 对不上。
+# 注意：本规则只管 Git 层；运行产物的 LF 由 PoC 写文件处的 newline="\n" 保证。
+* text=auto eol=lf

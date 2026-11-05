@@ -1,0 +1,232 @@
+{
+  "trace_id": "TRACE-C023-v2",
+  "case_id": "C023",
+  "config_version": "v2",
+  "ontology_version": "0.2.0",
+  "started_at": "2026-10-16T23:41:09",
+  "finished_at": "2026-10-16T23:41:09",
+  "latency_ms": 0,
+  "steps": [
+    {
+      "step": 1,
+      "stage": "S1_初始诊断",
+      "tool": "llm.diagnose",
+      "inputs": {
+        "symptoms": [
+          "夜间咳嗽",
+          "反酸",
+          "胸骨后疼痛"
+        ],
+        "evidence": []
+      },
+      "outputs": {
+        "conclusion": "胃食管反流病",
+        "candidates": [
+          {
+            "disease": "胃食管反流病",
+            "score": 4.6646
+          },
+          {
+            "disease": "支气管哮喘",
+            "score": 1.0586
+          }
+        ]
+      },
+      "confidence": {
+        "evidence_sufficiency": 0.0,
+        "consistency": 0.3,
+        "completeness": 1.0,
+        "certainty": 1.0,
+        "overall": 0.525
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 2,
+      "stage": "S2_四步CoT",
+      "tool": "skill.S2_chain_of_thought",
+      "inputs": {
+        "symptoms": [
+          "夜间咳嗽",
+          "反酸",
+          "胸骨后疼痛"
+        ]
+      },
+      "outputs": {
+        "chain": {
+          "step1_extract": [
+            "反酸",
+            "胸骨后疼痛",
+            "夜间咳嗽"
+          ],
+          "step2_associate": [
+            "呼吸困难",
+            "哮鸣音",
+            "过敏史",
+            "发作性喘息",
+            "胸闷",
+            "烧心",
+            "卧位加重"
+          ],
+          "step3_differential": [
+            "支气管哮喘",
+            "胃食管反流病"
+          ],
+          "associated_symptoms": [
+            "反酸",
+            "胸骨后疼痛",
+            "夜间咳嗽",
+            "呼吸困难",
+            "哮鸣音",
+            "过敏史",
+            "发作性喘息"
+          ]
+        },
+        "conclusion": "支气管哮喘"
+      },
+      "confidence": {
+        "evidence_sufficiency": 0.0,
+        "consistency": 0.3,
+        "completeness": 0.714,
+        "certainty": 1.0,
+        "overall": 0.468
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 3,
+      "stage": "S3_RAG增强",
+      "tool": "mcp.graph_retriever + llm.diagnose",
+      "inputs": {
+        "symptoms": [
+          "夜间咳嗽",
+          "反酸",
+          "胸骨后疼痛"
+        ],
+        "evidence_ids": [
+          "C024",
+          "C023",
+          "G008"
+        ],
+        "evidence": [
+          {
+            "doc_id": "C024",
+            "disease": "胃食管反流病",
+            "score": 1.0
+          },
+          {
+            "doc_id": "C023",
+            "disease": "胃食管反流病",
+            "score": 0.7994
+          },
+          {
+            "doc_id": "G008",
+            "disease": "胃食管反流病",
+            "score": 0.7457
+          }
+        ]
+      },
+      "outputs": {
+        "conclusion": "胃食管反流病",
+        "candidates": [
+          {
+            "disease": "胃食管反流病",
+            "score": 10.6341
+          },
+          {
+            "disease": "支气管哮喘",
+            "score": 1.7555
+          },
+          {
+            "disease": "社区获得性肺炎",
+            "score": 0.0549
+          }
+        ]
+      },
+      "confidence": {
+        "evidence_sufficiency": 1.0,
+        "consistency": 1.0,
+        "completeness": 1.0,
+        "certainty": 1.0,
+        "overall": 1.0
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 4,
+      "stage": "S4_决策融合",
+      "tool": "skill.S4_decision_fusion",
+      "inputs": {
+        "s1": "胃食管反流病",
+        "s2": "支气管哮喘",
+        "s3": "胃食管反流病",
+        "evidence_ids": [
+          "C024",
+          "C023",
+          "G008"
+        ]
+      },
+      "outputs": {
+        "conclusion": "胃食管反流病",
+        "confidence": {
+          "evidence_sufficiency": 1.0,
+          "consistency": 1.0,
+          "completeness": 1.0,
+          "certainty": 1.0,
+          "overall": 1.0
+        }
+      },
+      "confidence": {
+        "evidence_sufficiency": 1.0,
+        "consistency": 1.0,
+        "completeness": 1.0,
+        "certainty": 1.0,
+        "overall": 1.0
+      },
+      "at": "2026-10-16T23:41:09"
+    }
+  ],
+  "conclusion": "胃食管反流病",
+  "gold": "胃食管反流病",
+  "correct": true,
+  "final_confidence": {
+    "evidence_sufficiency": 1.0,
+    "consistency": 1.0,
+    "completeness": 1.0,
+    "certainty": 1.0,
+    "overall": 1.0
+  },
+  "evidence": [
+    {
+      "doc_id": "C024",
+      "disease": "胃食管反流病",
+      "disease_id": "MEDONT:0008",
+      "text": "患者，女，55 岁，因「夜间咳嗽、烧心、反酸、胸骨后疼痛」就诊，症状持续 8 天。",
+      "source": "病历库",
+      "score": 1.0,
+      "sparse": 26.1398,
+      "dense": 0.6042
+    },
+    {
+      "doc_id": "C023",
+      "disease": "胃食管反流病",
+      "disease_id": "MEDONT:0008",
+      "text": "患者，女，57 岁，因「夜间咳嗽、反酸、胸骨后疼痛」就诊，症状持续 8 天。伴夜间盗汗。",
+      "source": "病历库",
+      "score": 0.7994,
+      "sparse": 21.8939,
+      "dense": 0.4484
+    },
+    {
+      "doc_id": "G008",
+      "disease": "胃食管反流病",
+      "disease_id": "MEDONT:0008",
+      "text": "【胃食管反流病】典型表现：烧心、反酸、胸骨后疼痛、夜间咳嗽、卧位加重。诊断要点：典型烧心与反酸，卧位及饱食后加重，内镜或 PPI 试验可支持诊断。",
+      "source": "指南库",
+      "score": 0.7457,
+      "sparse": 21.6128,
+      "dense": 0.377
+    }
+  ],
+  "rejected": false
+}

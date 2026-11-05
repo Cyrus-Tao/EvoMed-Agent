@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trace.schema.json",
+  "title": "决策链 trace 契约",
+  "version": "1.0.0",
+  "owner": "A",
+  "status": "frozen",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["trace_id", "case_id", "config_version", "ontology_version", "started_at", "finished_at", "latency_ms", "steps", "conclusion", "gold", "correct", "final_confidence", "evidence", "rejected"],
+  "properties": {
+    "trace_id": { "type": "string" },
+    "case_id": { "type": ["string", "integer"] },
+    "config_version": { "type": "string" },
+    "ontology_version": { "type": "string" },
+    "started_at": { "type": "string" },
+    "finished_at": { "type": "string" },
+    "latency_ms": { "type": "number", "minimum": 0 },
+    "steps": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "stage", "tool", "inputs", "outputs", "confidence", "at"],
+        "properties": {
+          "step": { "type": "integer", "minimum": 1 },
+          "stage": { "type": "string" },
+          "tool": { "type": "string" },
+          "inputs": {},
+          "outputs": {},
+          "confidence": { "oneOf": [{"type": "null"}, {"$ref": "#/$defs/confidence"}] },
+          "at": { "type": "string" }
+        }
+      }
+    },
+    "conclusion": { "oneOf": [{"type": "null"}, {"type": "string"}] },
+    "gold": { "type": "string" },
+    "correct": { "type": "boolean" },
+    "final_confidence": { "oneOf": [{"type": "null"}, {"$ref": "#/$defs/confidence"}] },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["doc_id", "disease", "disease_id", "text", "source", "score", "sparse", "dense"],
+        "properties": {
+          "doc_id": { "type": "string" },
+          "disease": { "type": "string" },
+          "disease_id": { "type": "string" },
+          "text": { "type": "string" },
+          "source": { "type": "string" },
+          "score": { "type": "number" },
+          "sparse": { "type": "number" },
+          "dense": { "type": "number" }
+        }
+      }
+    },
+    "rejected": { "type": "boolean" }
+  },
+  "$defs": {
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_sufficiency", "consistency", "completeness", "certainty", "overall"],
+      "properties": {
+        "evidence_sufficiency": { "type": "number" },
+        "consistency": { "type": "number" },
+        "completeness": { "type": "number" },
+        "certainty": { "type": "number" },
+        "overall": { "type": "number" }
+      }
+    }
+  }
+}

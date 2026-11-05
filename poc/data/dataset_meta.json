@@ -1,0 +1,10 @@
+{
+  "name": "EvoMed-MiniBench v0.1",
+  "seed": 20261016,
+  "n_cases": 30,
+  "n_guidelines": 10,
+  "n_raw_assets": 23,
+  "n_diseases": 10,
+  "license": "自建合成数据，可自由使用（不含任何真实患者信息）",
+  "note": "用于最小原型验证，正式评测将接入公开中文医疗基准。"
+}

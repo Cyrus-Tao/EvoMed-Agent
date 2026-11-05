@@ -1,0 +1,325 @@
+[
+  {
+    "asset_id": "RAW-C008",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "03fec1129f5dc600",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，男，58 岁，因「过敏史、呼吸困难、发作性喘息、胸闷」就诊，症状持续 2 天。伴夜间盗汗。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C001",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "4d1141eb453e588d",
+    "quality_score": 0.91,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，女，44 岁，因「打喷嚏、流涕、乏力」就诊，症状持续 8 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C012",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "c39c850a954a79b3",
+    "quality_score": 0.985,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，女，22 岁，因「头痛、心悸、头晕、血压升高」就诊，症状持续 13 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C002",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "684ef619e949e73b",
+    "quality_score": 0.91,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，男，51 岁，因「发热、打喷嚏、流涕」就诊，症状持续 9 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C026",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "b675a9192bd648ba",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，女，69 岁，因「指甲脆裂、头晕、面色苍白」就诊，症状持续 2 天。伴夜间盗汗。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C007",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "40dd5aabc621414e",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，男，73 岁，因「夜间咳嗽、过敏史、哮鸣音」就诊，症状持续 3 天。伴睡眠欠佳。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C027",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "6f0182f2d5be1ad0",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，女，65 岁，因「乏力、心悸、面色苍白」就诊，症状持续 7 天。伴轻度水肿。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C018",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "3eb7437b74ee3cf4",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，女，70 岁，因「单侧搏动性头痛、畏声、视觉先兆、畏光」就诊，症状持续 12 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C015",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "db667ac5d2d05b77",
+    "quality_score": 0.94,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，男，33 岁，因「体重下降、多饮、多尿」就诊，症状持续 10 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C024",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "311839f4022d9bc1",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，女，55 岁，因「夜间咳嗽、烧心、反酸、胸骨后疼痛」就诊，症状持续 8 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C029",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "381c5d93140524f1",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，男，49 岁，因「乏力、记忆力减退、便秘、皮肤干燥」就诊，症状持续 10 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-C004",
+    "modality": "text",
+    "ext": ".txt",
+    "source_system": "EMR 门诊病历库",
+    "fingerprint": "0b2cec9187b42317",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "患者，女，45 岁，因「寒战、肺部湿啰音、咳脓痰、胸痛」就诊，症状持续 6 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G001",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "7eb4c305f9e7153a",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【急性上呼吸道感染】典型表现：发热、咳嗽、咽痛、鼻塞、流涕。诊断要点：起病急，以鼻咽部卡他症状为主，全身症状轻，病程自限约 5-7 天。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G002",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "11b5dcae8efdb2a8",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【社区获得性肺炎】典型表现：发热、咳嗽、咳脓痰、胸痛、气促。诊断要点：发热伴咳嗽咳痰，肺部可闻及湿啰音，影像学见实变影，需与肺结核鉴别。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G003",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "ddd6a90f87d985f8",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【支气管哮喘】典型表现：发作性喘息、胸闷、呼吸困难、夜间咳嗽、哮鸣音。诊断要点：反复发作性喘息，夜间及清晨加重，双肺哮鸣音，支气管舒张试验阳性。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G004",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "7e820a3924d1d8fd",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【原发性高血压】典型表现：头晕、头痛、颈项僵硬、心悸、耳鸣。诊断要点：非同日三次诊室血压 ≥140/90 mmHg，需排除继发性高血压。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G005",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "b6aae4f09d91f8f7",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【2型糖尿病】典型表现：多饮、多尿、多食、体重下降、乏力。诊断要点：典型三多一少症状，空腹血糖 ≥7.0 mmol/L 或 HbA1c ≥6.5%。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G006",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "72678f7dcd208ea8",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【偏头痛】典型表现：单侧搏动性头痛、恶心、呕吐、畏光、畏声。诊断要点：单侧搏动性中重度头痛，伴恶心呕吐、畏光畏声，日常活动加重。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G007",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "b68bab65a99d8b5b",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【急性胃炎】典型表现：上腹痛、腹胀、恶心、呕吐、嗳气。诊断要点：起病急，上腹疼痛伴恶心呕吐，常有饮食不当或药物刺激诱因。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G008",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "824acebab0971f97",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【胃食管反流病】典型表现：烧心、反酸、胸骨后疼痛、夜间咳嗽、卧位加重。诊断要点：典型烧心与反酸，卧位及饱食后加重，内镜或 PPI 试验可支持诊断。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G009",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "b5db1e5a8681c606",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【缺铁性贫血】典型表现：乏力、头晕、面色苍白、心悸、活动后气促。诊断要点：乏力苍白伴心悸，血常规示小细胞低色素性贫血，铁蛋白降低。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-G010",
+    "modality": "document",
+    "ext": ".md",
+    "source_system": "临床指南文档库",
+    "fingerprint": "dcc018cd6738c55b",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 1,
+    "slices": [
+      "【甲状腺功能减退症】典型表现：乏力、畏寒、体重增加、便秘、皮肤干燥。诊断要点：代谢率减低表现，TSH 升高伴 FT4 降低，需与亚临床甲减鉴别。"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  },
+  {
+    "asset_id": "RAW-LAB-001",
+    "modality": "table",
+    "ext": ".csv",
+    "source_system": "检验信息系统 LIS",
+    "fingerprint": "86cd12fd17eb7f81",
+    "quality_score": 1.0,
+    "sensitivity": "低",
+    "n_slices": 2,
+    "slices": [
+      "项目,结果,参考区间\n血红蛋白,98 g/L,130-175\n血清铁蛋白,6 ng/mL,30-400\n空腹血糖,8.4 mmol/L,3.9-6.1",
+      "TSH,12.3 mIU/L,0.27-4.2"
+    ],
+    "indexed_at": "2026-10-16T00:00:00"
+  }
+]

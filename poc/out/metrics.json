@@ -1,0 +1,85 @@
+{
+  "v0": {
+    "n_samples": 15,
+    "accuracy": 0.2667,
+    "accuracy_answered": null,
+    "macro_p": 0.2083,
+    "macro_r": 0.2,
+    "macro_f1": 0.19,
+    "evidence_hit_rate": 0.0,
+    "traceable_rate": 0.0,
+    "avg_latency_ms": 0.0,
+    "reject_rate": 1.0
+  },
+  "v1": {
+    "n_samples": 15,
+    "accuracy": 0.9333,
+    "accuracy_answered": 0.9333,
+    "macro_p": 0.8667,
+    "macro_r": 0.9,
+    "macro_f1": 0.88,
+    "evidence_hit_rate": 1.0,
+    "traceable_rate": 1.0,
+    "avg_latency_ms": 0.0,
+    "reject_rate": 0.0
+  },
+  "v2": {
+    "n_samples": 15,
+    "accuracy": 1.0,
+    "accuracy_answered": 1.0,
+    "macro_p": 1.0,
+    "macro_r": 1.0,
+    "macro_f1": 1.0,
+    "evidence_hit_rate": 0.9333,
+    "traceable_rate": 1.0,
+    "avg_latency_ms": 0.0,
+    "reject_rate": 0.0
+  },
+  "delta_v1_v0": {
+    "accuracy": 0.6666,
+    "macro_p": 0.6584,
+    "macro_r": 0.7,
+    "macro_f1": 0.69,
+    "evidence_hit_rate": 1.0,
+    "traceable_rate": 1.0
+  },
+  "delta_v2_v1": {
+    "accuracy": 0.0667,
+    "macro_p": 0.1333,
+    "macro_r": 0.1,
+    "macro_f1": 0.12,
+    "evidence_hit_rate": -0.0667,
+    "traceable_rate": 0.0
+  },
+  "kv_results": [
+    {
+      "name": "KV-1 检索增强有效",
+      "pass": true,
+      "detail": "Accuracy 0.2667 -> 0.9333 (Δ=+0.6666)"
+    },
+    {
+      "name": "KV-2 本体约束提升检索",
+      "pass": true,
+      "detail": "证据命中率 0.0000 -> 1.0000"
+    },
+    {
+      "name": "KV-3 决策链可溯源",
+      "pass": true,
+      "detail": "可溯率 1.0000，trace.json 字段完整"
+    },
+    {
+      "name": "KV-4 进化闭环成立",
+      "pass": true,
+      "detail": "Accuracy 0.9333 -> 1.0000 (Δ=+0.0667)"
+    }
+  ],
+  "ontology_versions": [
+    "0.1.0",
+    "0.2.0"
+  ],
+  "skills_used": [
+    "S2_chain_of_thought",
+    "S3_multi_hop_evidence",
+    "S4_decision_fusion"
+  ]
+}

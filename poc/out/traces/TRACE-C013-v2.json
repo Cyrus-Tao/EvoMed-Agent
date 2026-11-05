@@ -1,0 +1,227 @@
+{
+  "trace_id": "TRACE-C013-v2",
+  "case_id": "C013",
+  "config_version": "v2",
+  "ontology_version": "0.2.0",
+  "started_at": "2026-10-16T23:41:09",
+  "finished_at": "2026-10-16T23:41:09",
+  "latency_ms": 0,
+  "steps": [
+    {
+      "step": 1,
+      "stage": "S1_初始诊断",
+      "tool": "llm.diagnose",
+      "inputs": {
+        "symptoms": [
+          "多饮",
+          "多食",
+          "体重下降",
+          "视物模糊"
+        ],
+        "evidence": []
+      },
+      "outputs": {
+        "conclusion": "2型糖尿病",
+        "candidates": [
+          {
+            "disease": "2型糖尿病",
+            "score": 5.9308
+          },
+          {
+            "disease": "社区获得性肺炎",
+            "score": 0.7904
+          }
+        ]
+      },
+      "confidence": {
+        "evidence_sufficiency": 0.0,
+        "consistency": 0.3,
+        "completeness": 0.75,
+        "certainty": 1.0,
+        "overall": 0.475
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 2,
+      "stage": "S2_四步CoT",
+      "tool": "skill.S2_chain_of_thought",
+      "inputs": {
+        "symptoms": [
+          "多饮",
+          "多食",
+          "体重下降",
+          "视物模糊"
+        ]
+      },
+      "outputs": {
+        "chain": {
+          "step1_extract": [
+            "多饮",
+            "多食",
+            "体重下降",
+            "视物模糊"
+          ],
+          "step2_associate": [
+            "多尿"
+          ],
+          "step3_differential": [
+            "2型糖尿病"
+          ],
+          "associated_symptoms": [
+            "多饮",
+            "多食",
+            "体重下降",
+            "视物模糊",
+            "多尿"
+          ]
+        },
+        "conclusion": "2型糖尿病"
+      },
+      "confidence": {
+        "evidence_sufficiency": 0.0,
+        "consistency": 0.3,
+        "completeness": 0.8,
+        "certainty": 1.0,
+        "overall": 0.485
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 3,
+      "stage": "S3_RAG增强",
+      "tool": "mcp.graph_retriever + llm.diagnose",
+      "inputs": {
+        "symptoms": [
+          "多饮",
+          "多食",
+          "体重下降",
+          "视物模糊"
+        ],
+        "evidence_ids": [
+          "C013",
+          "C014",
+          "C015"
+        ],
+        "evidence": [
+          {
+            "doc_id": "C013",
+            "disease": "2型糖尿病",
+            "score": 1.0
+          },
+          {
+            "doc_id": "C014",
+            "disease": "2型糖尿病",
+            "score": 0.7409
+          },
+          {
+            "doc_id": "C015",
+            "disease": "2型糖尿病",
+            "score": 0.4479
+          }
+        ]
+      },
+      "outputs": {
+        "conclusion": "2型糖尿病",
+        "candidates": [
+          {
+            "disease": "2型糖尿病",
+            "score": 10.0914
+          },
+          {
+            "disease": "社区获得性肺炎",
+            "score": 0.0474
+          },
+          {
+            "disease": "胃食管反流病",
+            "score": 0.0408
+          }
+        ]
+      },
+      "confidence": {
+        "evidence_sufficiency": 1.0,
+        "consistency": 1.0,
+        "completeness": 0.75,
+        "certainty": 1.0,
+        "overall": 0.95
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 4,
+      "stage": "S4_决策融合",
+      "tool": "skill.S4_decision_fusion",
+      "inputs": {
+        "s1": "2型糖尿病",
+        "s2": "2型糖尿病",
+        "s3": "2型糖尿病",
+        "evidence_ids": [
+          "C013",
+          "C014",
+          "C015"
+        ]
+      },
+      "outputs": {
+        "conclusion": "2型糖尿病",
+        "confidence": {
+          "evidence_sufficiency": 1.0,
+          "consistency": 1.0,
+          "completeness": 0.75,
+          "certainty": 1.0,
+          "overall": 0.95
+        }
+      },
+      "confidence": {
+        "evidence_sufficiency": 1.0,
+        "consistency": 1.0,
+        "completeness": 0.75,
+        "certainty": 1.0,
+        "overall": 0.95
+      },
+      "at": "2026-10-16T23:41:09"
+    }
+  ],
+  "conclusion": "2型糖尿病",
+  "gold": "2型糖尿病",
+  "correct": true,
+  "final_confidence": {
+    "evidence_sufficiency": 1.0,
+    "consistency": 1.0,
+    "completeness": 0.75,
+    "certainty": 1.0,
+    "overall": 0.95
+  },
+  "evidence": [
+    {
+      "doc_id": "C013",
+      "disease": "2型糖尿病",
+      "disease_id": "MEDONT:0005",
+      "text": "患者，女，77 岁，因「多饮、多食、体重下降、视物模糊」就诊，症状持续 7 天。",
+      "source": "病历库",
+      "score": 1.0,
+      "sparse": 28.5116,
+      "dense": 0.7854
+    },
+    {
+      "doc_id": "C014",
+      "disease": "2型糖尿病",
+      "disease_id": "MEDONT:0005",
+      "text": "患者，女，68 岁，因「视物模糊、多尿、多饮、体重下降」就诊，症状持续 1 天。伴轻度水肿。",
+      "source": "病历库",
+      "score": 0.7409,
+      "sparse": 22.9086,
+      "dense": 0.5083
+    },
+    {
+      "doc_id": "C015",
+      "disease": "2型糖尿病",
+      "disease_id": "MEDONT:0005",
+      "text": "患者，男，33 岁，因「体重下降、多饮、多尿」就诊，症状持续 10 天。",
+      "source": "病历库",
+      "score": 0.4479,
+      "sparse": 12.9782,
+      "dense": 0.3432
+    }
+  ],
+  "rejected": false
+}

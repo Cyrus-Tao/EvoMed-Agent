@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "asset_card.schema.json",
+  "title": "资产卡片契约（文件为卡片数组）",
+  "version": "1.0.0",
+  "owner": "A",
+  "status": "frozen",
+  "type": "array",
+  "items": { "$ref": "#/$defs/card" },
+  "$defs": {
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_id", "modality", "ext", "source_system", "fingerprint", "quality_score", "sensitivity", "n_slices", "slices", "indexed_at"],
+      "properties": {
+        "asset_id": { "type": "string" },
+        "modality": { "enum": ["text", "document", "table", "image", "pdf"] },
+        "ext": { "type": "string" },
+        "source_system": { "type": "string" },
+        "fingerprint": { "type": "string", "pattern": "^[0-9a-f]{16}$" },
+        "quality_score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "sensitivity": { "enum": ["高", "中", "低"] },
+        "n_slices": { "type": "integer", "minimum": 0 },
+        "slices": { "type": "array", "items": { "type": "string" } },
+        "indexed_at": { "type": "string" }
+      }
+    }
+  }
+}

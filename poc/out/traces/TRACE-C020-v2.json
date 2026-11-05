@@ -1,0 +1,224 @@
+{
+  "trace_id": "TRACE-C020-v2",
+  "case_id": "C020",
+  "config_version": "v2",
+  "ontology_version": "0.2.0",
+  "started_at": "2026-10-16T23:41:09",
+  "finished_at": "2026-10-16T23:41:09",
+  "latency_ms": 0,
+  "steps": [
+    {
+      "step": 1,
+      "stage": "S1_初始诊断",
+      "tool": "llm.diagnose",
+      "inputs": {
+        "symptoms": [
+          "食欲不振",
+          "上腹痛",
+          "嗳气"
+        ],
+        "evidence": []
+      },
+      "outputs": {
+        "conclusion": "急性胃炎",
+        "candidates": [
+          {
+            "disease": "急性胃炎",
+            "score": 5.1259
+          },
+          {
+            "disease": "2型糖尿病",
+            "score": 0.7897
+          }
+        ]
+      },
+      "confidence": {
+        "evidence_sufficiency": 0.0,
+        "consistency": 0.3,
+        "completeness": 1.0,
+        "certainty": 1.0,
+        "overall": 0.525
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 2,
+      "stage": "S2_四步CoT",
+      "tool": "skill.S2_chain_of_thought",
+      "inputs": {
+        "symptoms": [
+          "食欲不振",
+          "上腹痛",
+          "嗳气"
+        ]
+      },
+      "outputs": {
+        "chain": {
+          "step1_extract": [
+            "食欲不振",
+            "上腹痛",
+            "嗳气"
+          ],
+          "step2_associate": [
+            "腹胀",
+            "恶心"
+          ],
+          "step3_differential": [
+            "急性胃炎"
+          ],
+          "associated_symptoms": [
+            "食欲不振",
+            "上腹痛",
+            "嗳气",
+            "腹胀",
+            "恶心"
+          ]
+        },
+        "conclusion": "急性胃炎"
+      },
+      "confidence": {
+        "evidence_sufficiency": 0.0,
+        "consistency": 0.3,
+        "completeness": 1.0,
+        "certainty": 1.0,
+        "overall": 0.525
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 3,
+      "stage": "S3_RAG增强",
+      "tool": "mcp.graph_retriever + llm.diagnose",
+      "inputs": {
+        "symptoms": [
+          "食欲不振",
+          "上腹痛",
+          "嗳气"
+        ],
+        "evidence_ids": [
+          "C019",
+          "C020",
+          "G007"
+        ],
+        "evidence": [
+          {
+            "doc_id": "C019",
+            "disease": "急性胃炎",
+            "score": 1.0
+          },
+          {
+            "doc_id": "C020",
+            "disease": "急性胃炎",
+            "score": 0.8558
+          },
+          {
+            "doc_id": "G007",
+            "disease": "急性胃炎",
+            "score": 0.4772
+          }
+        ]
+      },
+      "outputs": {
+        "conclusion": "急性胃炎",
+        "candidates": [
+          {
+            "disease": "急性胃炎",
+            "score": 10.3316
+          },
+          {
+            "disease": "2型糖尿病",
+            "score": 0.0474
+          },
+          {
+            "disease": "支气管哮喘",
+            "score": 0.0271
+          }
+        ]
+      },
+      "confidence": {
+        "evidence_sufficiency": 1.0,
+        "consistency": 1.0,
+        "completeness": 1.0,
+        "certainty": 1.0,
+        "overall": 1.0
+      },
+      "at": "2026-10-16T23:41:09"
+    },
+    {
+      "step": 4,
+      "stage": "S4_决策融合",
+      "tool": "skill.S4_decision_fusion",
+      "inputs": {
+        "s1": "急性胃炎",
+        "s2": "急性胃炎",
+        "s3": "急性胃炎",
+        "evidence_ids": [
+          "C019",
+          "C020",
+          "G007"
+        ]
+      },
+      "outputs": {
+        "conclusion": "急性胃炎",
+        "confidence": {
+          "evidence_sufficiency": 1.0,
+          "consistency": 1.0,
+          "completeness": 1.0,
+          "certainty": 1.0,
+          "overall": 1.0
+        }
+      },
+      "confidence": {
+        "evidence_sufficiency": 1.0,
+        "consistency": 1.0,
+        "completeness": 1.0,
+        "certainty": 1.0,
+        "overall": 1.0
+      },
+      "at": "2026-10-16T23:41:09"
+    }
+  ],
+  "conclusion": "急性胃炎",
+  "gold": "急性胃炎",
+  "correct": true,
+  "final_confidence": {
+    "evidence_sufficiency": 1.0,
+    "consistency": 1.0,
+    "completeness": 1.0,
+    "certainty": 1.0,
+    "overall": 1.0
+  },
+  "evidence": [
+    {
+      "doc_id": "C019",
+      "disease": "急性胃炎",
+      "disease_id": "MEDONT:0007",
+      "text": "患者，女，64 岁，因「腹胀、嗳气、上腹痛、食欲不振」就诊，症状持续 2 天。",
+      "source": "病历库",
+      "score": 1.0,
+      "sparse": 26.8033,
+      "dense": 0.7548
+    },
+    {
+      "doc_id": "C020",
+      "disease": "急性胃炎",
+      "disease_id": "MEDONT:0007",
+      "text": "患者，男，29 岁，因「食欲不振、上腹痛、嗳气」就诊，症状持续 13 天。",
+      "source": "病历库",
+      "score": 0.8558,
+      "sparse": 23.6756,
+      "dense": 0.6148
+    },
+    {
+      "doc_id": "G007",
+      "disease": "急性胃炎",
+      "disease_id": "MEDONT:0007",
+      "text": "【急性胃炎】典型表现：上腹痛、腹胀、恶心、呕吐、嗳气。诊断要点：起病急，上腹疼痛伴恶心呕吐，常有饮食不当或药物刺激诱因。",
+      "source": "指南库",
+      "score": 0.4772,
+      "sparse": 13.6939,
+      "dense": 0.3221
+    }
+  ],
+  "rejected": false
+}

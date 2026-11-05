@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "eval_split.schema.json",
+  "title": "评测集划分与指标口径契约（配置契约，W7 落盘）",
+  "version": "1.0.0",
+  "owner": "B",
+  "status": "frozen",
+  "x-no-artifact": true,
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["seed", "python_hash_seed", "split_rule", "test_ids", "feedback_ids", "metrics"],
+  "properties": {
+    "seed": { "type": "integer" },
+    "python_hash_seed": { "const": 0 },
+    "split_rule": { "type": "string" },
+    "test_ids": { "type": "array", "items": { "type": "string" } },
+    "feedback_ids": { "type": "array", "items": { "type": "string" } },
+    "metrics": { "type": "array", "items": { "type": "string" } },
+    "note": { "type": "string" }
+  }
+}

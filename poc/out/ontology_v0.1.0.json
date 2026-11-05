@@ -1,0 +1,265 @@
+{
+  "version": "0.1.0",
+  "classes": {
+    "MEDONT:0001": {
+      "label": "急性上呼吸道感染",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0002": {
+      "label": "社区获得性肺炎",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0003": {
+      "label": "支气管哮喘",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0004": {
+      "label": "原发性高血压",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0005": {
+      "label": "2型糖尿病",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0006": {
+      "label": "偏头痛",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0007": {
+      "label": "急性胃炎",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0008": {
+      "label": "胃食管反流病",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0009": {
+      "label": "缺铁性贫血",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    },
+    "MEDONT:0010": {
+      "label": "甲状腺功能减退症",
+      "synonyms": [],
+      "std_refs": {
+        "doid": null,
+        "mondo": null,
+        "icd10": null
+      },
+      "align_status": "pending"
+    }
+  },
+  "relations": [
+    {
+      "subject": "MEDONT:0001",
+      "predicate": "has_symptom",
+      "object": "发热"
+    },
+    {
+      "subject": "MEDONT:0001",
+      "predicate": "has_symptom",
+      "object": "咳嗽"
+    },
+    {
+      "subject": "MEDONT:0001",
+      "predicate": "has_symptom",
+      "object": "咽痛"
+    },
+    {
+      "subject": "MEDONT:0002",
+      "predicate": "has_symptom",
+      "object": "发热"
+    },
+    {
+      "subject": "MEDONT:0002",
+      "predicate": "has_symptom",
+      "object": "咳嗽"
+    },
+    {
+      "subject": "MEDONT:0002",
+      "predicate": "has_symptom",
+      "object": "咳脓痰"
+    },
+    {
+      "subject": "MEDONT:0003",
+      "predicate": "has_symptom",
+      "object": "发作性喘息"
+    },
+    {
+      "subject": "MEDONT:0003",
+      "predicate": "has_symptom",
+      "object": "呼吸困难"
+    },
+    {
+      "subject": "MEDONT:0003",
+      "predicate": "has_symptom",
+      "object": "胸闷"
+    },
+    {
+      "subject": "MEDONT:0004",
+      "predicate": "has_symptom",
+      "object": "头晕"
+    },
+    {
+      "subject": "MEDONT:0004",
+      "predicate": "has_symptom",
+      "object": "头痛"
+    },
+    {
+      "subject": "MEDONT:0004",
+      "predicate": "has_symptom",
+      "object": "颈项僵硬"
+    },
+    {
+      "subject": "MEDONT:0005",
+      "predicate": "has_symptom",
+      "object": "多尿"
+    },
+    {
+      "subject": "MEDONT:0005",
+      "predicate": "has_symptom",
+      "object": "多食"
+    },
+    {
+      "subject": "MEDONT:0005",
+      "predicate": "has_symptom",
+      "object": "多饮"
+    },
+    {
+      "subject": "MEDONT:0006",
+      "predicate": "has_symptom",
+      "object": "单侧搏动性头痛"
+    },
+    {
+      "subject": "MEDONT:0006",
+      "predicate": "has_symptom",
+      "object": "呕吐"
+    },
+    {
+      "subject": "MEDONT:0006",
+      "predicate": "has_symptom",
+      "object": "恶心"
+    },
+    {
+      "subject": "MEDONT:0007",
+      "predicate": "has_symptom",
+      "object": "上腹痛"
+    },
+    {
+      "subject": "MEDONT:0007",
+      "predicate": "has_symptom",
+      "object": "恶心"
+    },
+    {
+      "subject": "MEDONT:0007",
+      "predicate": "has_symptom",
+      "object": "腹胀"
+    },
+    {
+      "subject": "MEDONT:0008",
+      "predicate": "has_symptom",
+      "object": "反酸"
+    },
+    {
+      "subject": "MEDONT:0008",
+      "predicate": "has_symptom",
+      "object": "烧心"
+    },
+    {
+      "subject": "MEDONT:0008",
+      "predicate": "has_symptom",
+      "object": "胸骨后疼痛"
+    },
+    {
+      "subject": "MEDONT:0009",
+      "predicate": "has_symptom",
+      "object": "乏力"
+    },
+    {
+      "subject": "MEDONT:0009",
+      "predicate": "has_symptom",
+      "object": "头晕"
+    },
+    {
+      "subject": "MEDONT:0009",
+      "predicate": "has_symptom",
+      "object": "面色苍白"
+    },
+    {
+      "subject": "MEDONT:0010",
+      "predicate": "has_symptom",
+      "object": "乏力"
+    },
+    {
+      "subject": "MEDONT:0010",
+      "predicate": "has_symptom",
+      "object": "体重增加"
+    },
+    {
+      "subject": "MEDONT:0010",
+      "predicate": "has_symptom",
+      "object": "畏寒"
+    }
+  ],
+  "history": [
+    {
+      "version": "0.1.0",
+      "action": "initial_build",
+      "n_classes": 10,
+      "n_relations": 30
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "trace_id": "TRACE-C017-v2",
+  "case_id": "C017",
+  "config_version": "v2",
+  "ontology_version": "0.2.0",
+  "started_at": "2026-10-16T00:00:00",
+  "finished_at": "2026-10-16T00:00:00",
+  "latency_ms": 0,
+  "steps": [
+    {
+      "step": 1,
+      "stage": "S1_初始诊断",
+      "tool": "llm.diagnose",
+      "inputs": {
+        "symptoms": [
+          "视觉先兆",
+          "恶心",
+          "单侧搏动性头痛"
+        ],
+        "evidence": []
+      },
+      "outputs": {
+        "conclusion": "偏头痛",
+        "candidates": [
+          {
+            "disease": "偏头痛",
+            "score": 4.2525
+          },
+          {
+            "disease": "急性胃炎",
+            "score": 2.5949
+          }
+        ]
+      },
+      "confidence": {
+        "evidence_sufficiency": 0.0,
+        "consistency": 0.3,
+        "completeness": 0.667,
+        "certainty": 0.553,
+        "overall": 0.346
+      },
+      "at": "2026-10-16T00:00:00"
+    },
+    {
+      "step": 2,
+      "stage": "S2_四步CoT",
+      "tool": "skill.S2_chain_of_thought",
+      "inputs": {
+        "symptoms": [
+          "视觉先兆",
+          "恶心",
+          "单侧搏动性头痛"
+        ]
+      },
+      "outputs": {
+        "chain": {
+          "step1_extract": [
+            "视觉先兆",
+            "单侧搏动性头痛",
+            "恶心"
+          ],
+          "step2_associate": [
+            "呕吐",
+            "腹胀",
+            "上腹痛",
+            "嗳气",
+            "食欲不振"
+          ],
+          "step3_differential": [
+            "偏头痛",
+            "急性胃炎"
+          ],
+          "associated_symptoms": [
+            "视觉先兆",
+            "单侧搏动性头痛",
+            "恶心",
+            "呕吐",
+            "腹胀",
+            "上腹痛",
+            "嗳气"
+          ]
+        },
+        "conclusion": "急性胃炎"
+      },
+      "confidence": {
+        "evidence_sufficiency": 0.0,
+        "consistency": 0.3,
+        "completeness": 0.571,
+        "certainty": 0.714,
+        "overall": 0.368
+      },
+      "at": "2026-10-16T00:00:00"
+    },
+    {
+      "step": 3,
+      "stage": "S3_RAG增强",
+      "tool": "mcp.graph_retriever + llm.diagnose",
+      "inputs": {
+        "symptoms": [
+          "视觉先兆",
+          "恶心",
+          "单侧搏动性头痛"
+        ],
+        "evidence_ids": [
+          "C017",
+          "C018",
+          "G006"
+        ],
+        "evidence": [
+          {
+            "doc_id": "C017",
+            "disease": "偏头痛",
+            "score": 1.0
+          },
+          {
+            "doc_id": "C018",
+            "disease": "偏头痛",
+            "score": 0.9136
+          },
+          {
+            "doc_id": "G006",
+            "disease": "偏头痛",
+            "score": 0.8434
+          }
+        ]
+      },
+      "outputs": {
+        "conclusion": "偏头痛",
+        "candidates": [
+          {
+            "disease": "偏头痛",
+            "score": 9.2471
+          },
+          {
+            "disease": "急性胃炎",
+            "score": 1.8477
+          },
+          {
+            "disease": "缺铁性贫血",
+            "score": 0.0517
+          }
+        ]
+      },
+      "confidence": {
+        "evidence_sufficiency": 1.0,
+        "consistency": 1.0,
+        "completeness": 0.667,
+        "certainty": 1.0,
+        "overall": 0.933
+      },
+      "at": "2026-10-16T00:00:00"
+    },
+    {
+      "step": 4,
+      "stage": "S4_决策融合",
+      "tool": "skill.S4_decision_fusion",
+      "inputs": {
+        "s1": "偏头痛",
+        "s2": "急性胃炎",
+        "s3": "偏头痛",
+        "evidence_ids": [
+          "C017",
+          "C018",
+          "G006"
+        ]
+      },
+      "outputs": {
+        "conclusion": "偏头痛",
+        "confidence": {
+          "evidence_sufficiency": 1.0,
+          "consistency": 1.0,
+          "completeness": 0.667,
+          "certainty": 1.0,
+          "overall": 0.933
+        }
+      },
+      "confidence": {
+        "evidence_sufficiency": 1.0,
+        "consistency": 1.0,
+        "completeness": 0.667,
+        "certainty": 1.0,
+        "overall": 0.933
+      },
+      "at": "2026-10-16T00:00:00"
+    }
+  ],
+  "conclusion": "偏头痛",
+  "gold": "偏头痛",
+  "correct": true,
+  "final_confidence": {
+    "evidence_sufficiency": 1.0,
+    "consistency": 1.0,
+    "completeness": 0.667,
+    "certainty": 1.0,
+    "overall": 0.933
+  },
+  "evidence": [
+    {
+      "doc_id": "C017",
+      "disease": "偏头痛",
+      "disease_id": "MEDONT:0006",
+      "text": "患者，男，62 岁，因「视觉先兆、恶心、单侧搏动性头痛」就诊，症状持续 12 天。伴轻度水肿。",
+      "source": "病历库",
+      "score": 1.0,
+      "sparse": 30.2916,
+      "dense": 0.5362
+    },
+    {
+      "doc_id": "C018",
+      "disease": "偏头痛",
+      "disease_id": "MEDONT:0006",
+      "text": "患者，女，70 岁，因「单侧搏动性头痛、畏声、视觉先兆、畏光」就诊，症状持续 12 天。",
+      "source": "病历库",
+      "score": 0.9136,
+      "sparse": 28.4584,
+      "dense": 0.4691
+    },
+    {
+      "doc_id": "G006",
+      "disease": "偏头痛",
+      "disease_id": "MEDONT:0006",
+      "text": "【偏头痛】典型表现：单侧搏动性头痛、恶心、呕吐、畏光、畏声。诊断要点：单侧搏动性中重度头痛，伴恶心呕吐、畏光畏声，日常活动加重。",
+      "source": "指南库",
+      "score": 0.8434,
+      "sparse": 26.23,
+      "dense": 0.4341
+    }
+  ],
+  "rejected": false
+}
